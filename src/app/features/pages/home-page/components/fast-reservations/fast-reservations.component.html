@@ -1,0 +1,67 @@
+<div class="relative sm:-mt-[80px] mt-0 py-5 z-10">
+  <div class="mx-auto flex justify-center">
+    <div class="join join-vertical md:join-horizontal w-full md:w-fit m-3">
+      <div class="bg-base-100 border border-base-300 p-3 join-item">
+        <div class="flex fex-row gap-3 items-center">
+          <i class="fa-solid fa-hotel text-success w-6"></i>
+          <div class="flex flex-col gap-3 w-full">
+            <h3 class="font-bold">Actividad</h3>
+            <select class="select w-full">
+              <option value="">Reservar Habitacion</option>
+              <option value="">Reservar Tour</option>
+              <option value="">Cupo para Parqueadero</option>
+              <option value="">Contratar un Guia</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="bg-base-100 border border-base-300 min-w-52 p-3 join-item">
+        <div class="flex fex-row gap-3 items-center">
+          <i class="fa-solid fa-calendar-days text-success w-6"></i>
+          <div class="flex flex-col gap-3 w-full">
+            <h3 class="font-bold">Cuando</h3>
+            <input type="date" class="input w-full" id="fecha" />
+          </div>
+        </div>
+      </div>
+      <div class="bg-base-100 border border-base-300 min-w-52 p-3 join-item">
+        <div class="flex fex-row gap-3 items-center">
+          <i class="fa-solid fa-user-group text-success w-6"></i>
+          <div class="flex flex-col gap-3 w-full">
+            <h3 class="font-bold">Personas</h3>
+            <div class="dropdown dropdown-center m-0">
+              <div tabindex="0" role="button" class="input cursor-pointer justify-start w-full">
+                0
+              </div>
+              <div tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-full md:w-52 p-3 border border-base-200 shadow-sm">
+                <div class="grid grid-cols-2 gap-y-2 items-center">
+                  <h3>Adultos</h3>
+                  <select class="select">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                  <h3>Niños</h3>
+                  <select class="select">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                  <div class="col-span-full flex justify-center">
+                    <button class="btn">Aplicar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-success text-xl h-14 md:h-auto min-w-52 join-item">
+        <i class="fa-solid fa-arrow-right-long"></i>
+          Buscar
+      </button>
+    </div>
+  </div>
+</div>

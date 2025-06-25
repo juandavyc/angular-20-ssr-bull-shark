@@ -1,0 +1,24 @@
+<div class="drawer">
+  <input type="checkbox"
+    class="drawer-toggle"
+    [checked]="isOpen()" />
+  <div class="drawer-content flex flex-col">
+    <ui-navbar (openDrawer)="toggleDrawer(true)"/>
+    <router-outlet />
+    <ui-footer class="mt-10" />
+    <div class="fixed right-4 bottom-6 z-50 flex items-center group">
+    <span class="bg-neutral-200 border border-neutral-300 text-sm
+      px-3 py-1 rounded-l-full rounded-r-md
+      shadow-md mr-2">
+        Escríbenos
+    </span>
+    <div class="bg-green-500 hover:bg-green-400 text-white p-3
+      border-white rounded-full shadow-lg w-[52px]
+      text-center">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </div>
+  </div>
+  </div>
+  <ui-sidebar class="drawer-side"
+    (closeDrawer)="toggleDrawer(false)"/>
+</div>

@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+@keyframes softZoomOut {
+  0% {
+    transform: scale(1.1); /* empieza más grande */
+  }
+  100% {
+    transform: scale(1);   /* vuelve a su tamaño normal */
+  }
+}
+
+.soft-zoom-out {
+  animation: softZoomOut 10s ease-in-out infinite alternate;
+}
+
