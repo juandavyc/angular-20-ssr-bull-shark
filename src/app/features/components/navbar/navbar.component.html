@@ -1,34 +1,29 @@
-<div class="navbar bg-base-300 w-full">
+<nav class="fixed z-20 navbar bg-gradient-to-t from-base-300 to-base-200 shadow-md ">
   <div class="mx-2 flex-1 px-2">
     <ui-logo />
   </div>
-  <div class="hidden flex-none lg:block ">
-    <ul class="menu menu-horizontal items-center">
-      <li>
-        <a [routerLink]="['/']">Home</a>
-      </li>
-      <li>
-        <a [routerLink]="['/tours']">Tours</a>
-      </li>
-    </ul>
+  <div class="hidden flex-none lg:block">
+    <menu-items />
   </div>
   <div class="join join-horizontal">
-    <button class="btn join-item">
+    <button class="btn btn-success join-item">
       <i class="fa-solid fa-phone"></i>
     </button>
     <swap-theme class="join-item" />
-    <button class="btn join-item px-2 lg:rounded-e-lg" popovertarget="popover-1">
+    <button class="btn btn-success join-item px-2 lg:rounded-e-lg" popovertarget="popover-1">
       <img src="images/translate.png" alt="">
     </button>
     <ul class="dropdown menu w-52 rounded-box bg-base-100 shadow-sm" popover id="popover-1" style="position-anchor:--anchor-1">
-      <li><a class="bg-success">Español es</a></li>
+      <li>
+        <a class="bg-success">Español es</a>
+      </li>
       <li><a>English en</a></li>
       <li><a>Français fr</a></li>
       <li><a>Deutsch de</a></li>
       <li><a>Italiano it</a></li>
     </ul>
-    <button class="btn join-item lg:hidden" (click)="openDrawer.emit()">
+    <button class="btn btn-success join-item lg:hidden" (click)="openDrawer.emit()">
       <i class="fa-solid fa-bars"></i>
     </button>
   </div>
-</div>
+</nav>

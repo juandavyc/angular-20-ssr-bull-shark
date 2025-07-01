@@ -1,0 +1,42 @@
+<div class="my-5 bg-base-200 py-10">
+  <div class="mx-auto container flex justify-center p-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-10">
+      <div class="col-span-full">
+        <ui-title title="Instalaciones" data-aos="fade-up"/>
+      </div>
+      @for (item of [0,1,2,3]; track $index) {
+        <div class="card bg-base-100 shadow-sm" data-aos="flip-up">
+          <figure>
+            <img src="images/habitaciones.jpg" alt="Rooms" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">
+              Habitaciones
+            </h2>
+            <p>
+              Las mejores habitaciones de la Isla
+            </p>
+            <div class="card-actions justify-end">
+              <div class="badge badge-soft badge-error hover:badge-dash" data-aos="flip-up">
+                <i class="fa-solid fa-xmark"></i>
+                Baño
+              </div>
+              <div class="badge badge-soft badge-success hover:badge-dash" data-aos="flip-up">
+                <i class="fa-solid fa-check"></i>
+                Aire acondicionado
+              </div>
+            </div>
+            <div class="border-t border-dashed text-neutral/45 h-[1px]"></div>
+            <div class="card-actions justify-end">
+              <button class="btn btn-success md:btn-sm" data-aos="fade-right">
+                <i class="fa-solid fa-arrow-right-long"></i> Reservar
+              </button>
+              <button class="btn btn-warning md:btn-sm" data-aos="fade-right">
+                <i class="fa-solid fa-arrow-right-long"></i> Ver Mas detalles
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { LogoComponent } from '@shared/ui/logo/logo.component';
 import { SwapThemeComponent } from '../swap-theme/swap-theme.component';
-import { RouterLink } from '@angular/router';
+import { MenuItemsComponent } from '../menu-items/menu-items.component';
 
 
 @Component({
@@ -9,8 +9,7 @@ import { RouterLink } from '@angular/router';
   imports: [
     LogoComponent,
     SwapThemeComponent,
-    RouterLink,
-
+    MenuItemsComponent
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',

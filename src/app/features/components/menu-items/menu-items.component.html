@@ -1,1 +1,21 @@
-<p>menu-items works!</p>,
+<ul class="text-sm gap-1" [class]="menuClasses">
+  <li>
+    <a [routerLink]="['/']"
+      routerLinkActive="border-b-3 border-success text-base-content font-bold rounded-none"
+      [routerLinkActiveOptions]="{exact:true}">
+      <div class="sm:hidden block">
+          <i class="fa-solid fa-house text-neutral-400 w-5"></i>
+      </div>
+        Inicio
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['/about-us']"
+      routerLinkActive="bg-white text-neutral shadow-sm">
+      <div class="sm:hidden block">
+        <i class="fa-solid fa-briefcase text-neutral-400 w-5"></i>
+      </div>
+        Nosotros
+    </a>
+  </li>
+</ul>

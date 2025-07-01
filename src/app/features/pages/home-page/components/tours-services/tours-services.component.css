@@ -1,0 +1,5 @@
+@layer utilities {
+  .card.image-full > figure img {
+    filter: brightness(50%);
+  }
+}

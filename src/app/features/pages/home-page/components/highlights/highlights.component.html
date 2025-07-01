@@ -1,0 +1,21 @@
+
+<div class="mx-auto container flex justify-center py-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 justify-items-center">
+    <div class="col-span-full">
+      <ui-title title="¿Qué ofrecemos?" data-aos="fade-up"/>
+    </div>
+    @for (item of [0,1,2,3]; track $index) {
+      <div class="flex flex-col gap-3 justify-center items-center max-w-64" data-aos="fade-right">
+        <div class="mask mask-decagon bg-success/15 hover:bg-success/25 w-24 h-24 flex items-center justify-center">
+          <i class="fa-solid fa-circle-user text-success text-5xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold">
+          Calidad en el servicio {{item}}
+        </h3>
+        <p class="text-center text-base-content/60">
+          Servicio personalizado, acompañamiento profesional, confiable y con soluciones íntegras.
+        </p>
+      </div>
+    }
+  </div>
+</div>
