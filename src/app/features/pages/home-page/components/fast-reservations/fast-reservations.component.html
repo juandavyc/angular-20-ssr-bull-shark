@@ -1,78 +1,86 @@
 <div class="relative -mt-[65px] z-10">
   <div class="mx-auto flex justify-center">
-    <div class="join join-vertical md:join-horizontal w-full md:w-fit m-3 bg-gradient-to-b from-base-100 to-base-200 rounded-lg shadow-md">
-      <div class="border border-base-300 p-3 min-w-60 join-item">
-        <div class="flex fex-row md:gap-2 gap-5 items-center">
-          <div class="md:text-2xl text-4xl w-9">
-            <i class="fa-regular fa-compass fa-fw text-success/55"></i>
-          </div>
-          <div class="flex flex-col gap-2 w-full">
-            <h3 class="font-bold">Actividad</h3>
-            <select id="actividad" name="actividad" class="select w-full">
-              <option value="habitacion">Reservar Habitación</option>
-              <option value="tour">Reservar Tour</option>
-              <option value="parqueadero">Cupo para Parqueadero</option>
-              <option value="guia">Contratar un Guía</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="border border-base-300 p-3 min-w-60 join-item">
-        <div class="flex fex-row md:gap-2 gap-5 items-center">
-          <div class="md:text-2xl text-4xl w-9">
-            <i class="fa-regular fa-calendar fa-fw text-success/55"></i>
-          </div>
-          <div class="flex flex-col gap-2 w-full">
-            <h3 class="font-bold">Cuando</h3>
-            <input type="date" class="input w-full" id="fecha" />
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div
+        class="join join-vertical md:join-horizontal w-full md:w-fit m-3 bg-gradient-to-b from-base-100 to-base-200 rounded-lg shadow-md">
+        <div class="border border-base-300 p-3 min-w-60 join-item">
+          <div class="flex fex-row md:gap-2 gap-5 items-center">
+            <div class="md:text-2xl text-4xl w-9">
+              <i class="fa-regular fa-compass fa-fw text-success/55"></i>
+            </div>
+            <div class="flex flex-col gap-2 w-full">
+              <h3 class="font-bold">Actividad</h3>
+              <select class="select w-full" formControlName="activity">
+                <option value="habitacion">Reservar Habitación</option>
+                <option value="tour">Reservar Tour</option>
+                <option value="guia">Contratar un Guía</option>
+              </select>
+              <form-error-label [control]="form.get('activity')!" />
+            </div>
           </div>
         </div>
-      </div>
-      <div class="border border-base-300 p-3 min-w-60 join-item">
-        <div class="flex fex-row gap-3 items-center">
-          <div class="md:text-2xl text-4xl w-9">
-            <i class="fa-regular fa-user fa-fw text-success/55"></i>
+        <div class="border border-base-300 p-3 min-w-60 join-item">
+          <div class="flex fex-row md:gap-2 gap-5 items-center">
+            <div class="md:text-2xl text-4xl w-9">
+              <i class="fa-regular fa-calendar fa-fw text-success/55"></i>
+            </div>
+            <div class="flex flex-col gap-2 w-full">
+              <h3 class="font-bold">Cuando</h3>
+              <input type="date" class="input w-full" formControlName="plannedDate" [min]="formattedDate"/>
+              <form-error-label [control]="form.get('plannedDate')!" />
+            </div>
           </div>
-          <div class="flex flex-col gap-2 w-full">
-            <h3 class="font-bold">Personas</h3>
-            <div class="dropdown dropdown-center m-0">
-              <div tabindex="0" role="button" class="input cursor-pointer justify-start w-full">
-                0
-              </div>
-              <div tabindex="0"
-                class="dropdown-content menu bg-base-100 rounded-box z-1 w-full md:w-52 p-3 border border-base-200 shadow-sm">
-                <div class="grid grid-cols-2 gap-y-2 items-center">
-                  <h3>Adultos</h3>
-                  <select class="select">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 o Más</option>
-                  </select>
-                  <h3>Niños</h3>
-                  <select class="select">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5 o Más</option>
-                  </select>
-                  <div class="col-span-full flex justify-center">
-                    <button class="btn">Aplicar</button>
+        </div>
+        <div class="border border-base-300 p-3 min-w-60 join-item">
+          <div class="flex fex-row gap-3 items-center">
+            <div class="md:text-2xl text-4xl w-9">
+              <i class="fa-regular fa-user fa-fw text-success/55"></i>
+            </div>
+            <div class="flex flex-col gap-2 w-full">
+              <h3 class="font-bold">Personas</h3>
+              <div class="dropdown dropdown-center m-0">
+                <button type="button" class="input cursor-pointer justify-start" (click)="toggleDropdown()">
+                  {{totalPersons()}}
+                </button>
+
+                @if (dropdownVisible()) {
+                <div tabindex="0"
+                  class="dropdown-content menu bg-base-100 rounded-box z-1 w-full md:w-52 p-3 border border-base-200 shadow-sm">
+                  <div class="grid grid-cols-2 gap-y-2 items-center">
+                    <h3>Adultos</h3>
+                    <select class="select" formControlName="adults">
+                      <option value="0" selected>0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5 o Más</option>
+                    </select>
+                    <h3>Niños</h3>
+                    <select class="select" formControlName="children">
+                      <option value="0" selected>0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5 o Más</option>
+                    </select>
+                    <div class="col-span-full flex justify-center">
+                      <button type="button" class="btn" (click)="setNumberOfPersons()">
+                        Aplicar</button>
+                    </div>
                   </div>
                 </div>
+                }
               </div>
             </div>
           </div>
         </div>
+        <button type="submit" class="btn btn-success text-xl h-14 md:h-auto min-w-40 join-item">
+          <i class="fa-solid fa-arrow-right-long"></i>
+          Buscar
+        </button>
       </div>
-      <button class="btn btn-success text-xl h-14 md:h-auto min-w-40 join-item">
-        <i class="fa-solid fa-arrow-right-long"></i>
-        Buscar
-      </button>
-    </div>
+    </form>
   </div>
 </div>
